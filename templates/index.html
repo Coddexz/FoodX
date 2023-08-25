@@ -1,0 +1,86 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    {% if not recipes_list %}
+        <div id="instruction" id="instruction">
+            {% if name is not none and name|string|length > 0 %}
+                <h3>Welcome {{ name }}!</h3>
+            {% else %}
+                <h3>Welcome user!</h3>
+            {% endif %}
+            <p>You can see more details when you add the recipe to your favourites.
+                You can have max 10 favourite recipes.</p>
+            <p>You can find a dish by entering your ingredients into the search bar. Please follow the pattern below:</p>
+            <ul class="instruction-list">
+                <li>Enter the <strong>right name</strong> of an ingredient.
+                    You can find ingredients in the <strong>ingredients tab</strong>.</li>
+                <li>Each ingredient has to be <strong>separated by a comma</strong>.</li>
+                <li>Do not type in <strong>any unnecessary characters</strong>.</li>
+                <li>Example: <strong id="instruction-pattern">apple, peas, strawberry</strong></li>
+            </ul>
+        </div>
+    {% endif %}
+    <br>
+    <form id="search_form" action="/" method="post">
+        <div class="search-container">
+            <input type="text" class="form-control" id="search_bar" name="search_bar"
+                   placeholder="Enter ingredients you have"
+            {% if recipes_list %} value="{{ ingredients_entered }}" {% endif %}>
+            <button type="submit" class="btn btn-light" id="search-button">
+                <img src="/static/search.png" alt="Search" title="Search icons created by Maxim Basinski Premium - Flaticon
+                (https://www.flaticon.com/free-icons/search)">
+            </button>
+        </div>
+    </form>
+    <br>
+    {% if recipes_list %}
+        <table class="table">
+          <thead>
+            <tr>
+                <th>Name</th>
+                <th>Image</th>
+                <th>Description</th>
+                <th>Ingredients</th>
+                <th>Ratings</th>
+                <th>Video</th>
+                {% if session["name"] %}
+                    <th>Fav</th>
+                {% endif %}
+            </tr>
+          </thead>
+          <tbody>
+            {% for recipe in recipes_list %}
+            <tr>
+                <td>{{ recipe.name }}</td>
+                <td><img src="{{ recipe.image_url }}" alt="{{ recipe.name }}" style="width:100px;"></td>
+                <td>{{ recipe.description }}</td>
+                <td>{{ recipe.dish_ingredients }}</td>
+                <td>{{ recipe.ratings }}</td>
+                <td>{% if recipe.video_url %}
+                    <a href="{{ recipe.video_url }}" target="_blank">Video</a>
+                {% endif %}</td>
+            {% if session["name"] %}
+                {% if recipe.dish_id in user_fav_recipes %}
+                    <td><span class="fa fa-star checked" data-recipe='{{ recipe|tojson }}'></span></td>
+                {% else %}
+                    <td><span class="fa fa-star" data-recipe='{{ recipe|tojson }}'></span></td>
+                {% endif %}
+            {% endif %}
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        <form method="POST" action="/" id="paging_form">
+          <select class="form-control" id="paging_number" name="paging_number">
+            {% for i in range (possible_searches) %}
+                <option value="{{ i + 1 }}" {% if i + 1 == paging_number + 1 %}selected{% endif %}>{{ i + 1 }}</option>
+            {% endfor %}
+          </select>
+        <input type="submit" value="Change page">
+        </form>
+    {% endif %}
+{% endblock %}

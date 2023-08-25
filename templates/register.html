@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8">
+                <form action="/register" method="post" autocomplete="off">
+                    <div class="form-floating mb-3">
+                      <input type="email" class="form-control" name="user_email" id="user_email"
+                             placeholder="name@example.com">
+                      <label for="floatingInput">Please, type in your email address</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                      <input type="text" class="form-control" name="user_name" id="user_name"
+                             placeholder="Name">
+                      <label for="floatingInput">(Optional) How should we call you?</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                      <input type="password" class="form-control" name="user_password"
+                             id="user_password" placeholder="Password"
+                             pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
+                             title="Must contain at least one number, one letter, one special character [@$!%*#?&] and
+                             minimum 8 characters overall" required>
+                      <label for="floatingPassword">Please, enter your password</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                      <input type="password" class="form-control" name="password_confirmation"
+                             id="password_confirmation" placeholder="Password Confirmation"
+                             pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
+                             title="Must contain at least one number, one letter, one special character [@$!%*#?&] and
+                             minimum 8 characters overall" required>
+                      <label for="floatingPassword">Please, confirm your password</label>
+                    </div>
+                    <button class="btn btn-primary" type="submit">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

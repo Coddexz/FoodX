@@ -1,0 +1,113 @@
+body {
+    background-color: #fbfbfb;
+}
+#foodTypes {
+    max-width: 100%;
+    max-height: 600px;
+    /*display: block;*/
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flashes {
+    list-style-type: none;
+}
+.search-container #search_bar{
+    height: 3rem !important;
+}
+
+.separator {
+    border: none;
+    border-top: 1px solid black;
+    width: 50%;
+    margin: 10px auto;
+}
+
+#f_delete_account {
+    display: none;
+}
+
+#search_form {
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 30rem;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+}
+
+#search-button {
+    position: absolute;
+      background: none;
+      border: none;
+      padding: 0;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+}
+
+#search-button img {
+  width: 30px;
+  height: 30px;
+}
+
+.search-container {
+  position: relative;
+}
+
+#search-bar {
+  padding-right: 40px;
+}
+
+#search-button {
+  background-color: transparent;
+}
+
+.alert-primary {
+    position: fixed;
+    list-style: none;
+    top: 5px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 50%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index:999;
+    margin: 0 auto;
+    border: solid black 1px;
+}
+.alert-primary:hover {
+    cursor: pointer;
+}
+.instruction-list {
+    list-style-type: none;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 0 auto;
+    min-width: 30rem;
+    max-width: 30%;
+}
+#instruction-pattern {
+    border: 2px solid #ccc;
+    padding: 1px;
+    margin: 1px;
+    background-color: #f7f7f7;
+}
+.fa-star:hover {
+    cursor: pointer;
+}
+.checked {
+    color: orange;
+}
+.checked:hover {
+    cursor: pointer;
+}
+.table {
+    max-width: 100%;
+}

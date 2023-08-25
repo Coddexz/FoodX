@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8">
+                <form action="/login" method="post">
+                    <div class="form-floating mb-3">
+                      <input type="email" class="form-control" name="user_email" id="user_email" placeholder="name@example.com" autofocus >
+                      <label for="floatingInput">Email address</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                      <input type="password" class="form-control" name="user_password" id="user_password" placeholder="Password">
+                      <label for="floatingPassword">Password</label>
+                    </div>
+                    <button class="btn btn-primary" type="submit">Log In</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

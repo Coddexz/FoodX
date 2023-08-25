@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Favourite dishes
+{% endblock %}
+
+{% block main %}
+        <table class="table">
+          <thead>
+            <tr>
+                <th>Name</th>
+                <th>Image/Video</th>
+                <th>Description</th>
+                <th>Instruction</th>
+                <th>Ingredients</th>
+                <th>Ratings</th>
+                <th>Fav</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for recipe in user_favourite_recipes %}
+                <tr>
+                    <td>{{ recipe.name }}</td>
+                    <td><img src="{{ recipe.image_url }}" alt="{{ recipe.image_url }}" style="width:100px;"> <br>
+                        {% if recipe.video_url %}
+                            <a href="{{ recipe.video_url }}" target="_blank">Video</a></td>
+                        {% endif %}
+                    <td>{{ recipe.description }}</td>
+                    <td>{{ recipe.instructions }}</td>
+                    <td>{{ recipe.dish_ingredients }}</td>
+                    <td>{{ recipe.ratings }}</td>
+                    <td><span class="fa fa-star checked" data-recipe='{{ recipe|tojson }}'></span></td>
+                </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+{% endblock %}
