@@ -4,10 +4,10 @@ This project is a web application that allows users to search for recipes based 
 
 
 ##### Files
-* 'app.py': The main file that runs the web application using Flask. It contains the routes for the index page, login page, and registration page. It also contains the logic for communicating with the Tasty API to retrieve the recipe information and for handling user authentication and session management.
-* 'identifier.sqlite': The SQLite database that stores the user information, including the user's hashed password, their favourite recipes and ingredients possible to enter.
-* 'templates/': A folder that contains the HTML templates used by the application. The templates include the index page, the login page, and the registration page. Layout is the basic template which consists of main links and functionalities. Index is crucial for API connection and browsing recipes. In the templates I used jinja2 syntax for connection with Flask application.
-* 'static/' :A folder that contains the CSS and JavaScript files used by the application. The CSS file is used for styling the HTML templates, and the JavaScript file is used for handling the page change functionality. There are also img files for the graphic part of the project: main image and search bar magnifying glass. They are duly contributed in the code.
+* `app.py`: The main file that runs the web application using Flask. It contains the routes for the index page, login page, and registration page. It also contains the logic for communicating with the Tasty API to retrieve the recipe information and for handling user authentication and session management.
+* `identifier.sqlite`: The SQLite database that stores the user information, including the user's hashed password, their favourite recipes and ingredients possible to enter.
+* `templates/`: A folder that contains the HTML templates used by the application. The templates include the index page, the login page, and the registration page. Layout is the basic template which consists of main links and functionalities. Index is crucial for API connection and browsing recipes. In the templates I used jinja2 syntax for connection with Flask application.
+* `static/` :A folder that contains the CSS and JavaScript files used by the application. The CSS file is used for styling the HTML templates, and the JavaScript file is used for handling the page change functionality. There are also img files for the graphic part of the project: main image and search bar magnifying glass. They are duly contributed in the code.
 
 
 ##### Design Choices
